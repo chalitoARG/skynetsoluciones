@@ -1,0 +1,16 @@
+SEO recomendado para https://soporte.skynetsoluciones.com/
+
+Para integrarlo correctamente necesito el index/proyecto fuente de soporte.skynetsoluciones.com.
+No conviene modificarlo a ciegas desde el HTML desplegado.
+
+Objetivos:
+- title: Soporte de Networking para ISP's y Empresas | Skynet Soluciones
+- description orientada a MikroTik, routing/switching, BGP/OSPF, PPPoE y PON.
+- canonical: https://soporte.skynetsoluciones.com/
+- robots index/follow
+- Open Graph / Twitter Card
+- JSON-LD ProfessionalService (y Person solo si se decide mantener la marca personal visible)
+- favicon común
+- robots.txt propio del subdominio
+- sitemap.xml propio del subdominio
+- enlace visible de retorno a https://skynetsoluciones.com/
