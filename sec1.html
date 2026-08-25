@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SEC1 de Skynet Soluciones: observabilidad, análisis de comportamiento DNS, correlación de indicadores y campañas dirigidas para ISP's y empresas.">
+  <title>SEC1 | Observabilidad y Seguridad de Red</title>
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="apple-touch-icon" href="img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f7f9fb;--card:#fff;--ink:#0f172a;--muted:#475569;--primary:#1e3a8a;
+      --cta:#204fbf;--cta-dark:#173e9d;--soft:#eef2ff;--border:#e5e7eb;
+      --navy:#0f172a;--navy2:#172554;--shadow:0 10px 30px rgba(2,6,23,.06)
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;line-height:1.55}
+    img{max-width:100%;display:block} a{color:inherit}
+    .container{width:min(1120px,calc(100% - 36px));margin:0 auto}
+    header{position:sticky;top:0;z-index:999;border-bottom:1px solid var(--border);background:rgba(247,249,251,.96);backdrop-filter:saturate(1.15) blur(8px)}
+    .nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand img{height:50px;width:auto}
+    nav{display:flex;align-items:center;gap:22px;flex-wrap:wrap;justify-content:flex-end}
+    nav a{font-size:14px;font-weight:700;text-decoration:none} nav a:hover{color:var(--cta)}
+    .hero{margin-top:24px;overflow:hidden;border:1px solid #1e3a8a;border-radius:20px;background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;box-shadow:var(--shadow)}
+    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:center;padding:50px 38px}
+    .eyebrow{display:inline-flex;margin-bottom:12px;color:#93c5fd;font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+    h1{margin:0 0 16px;font-size:clamp(38px,5vw,60px);line-height:1.02;letter-spacing:-.045em}
+    .hero p{margin:0 0 24px;color:#dbeafe;font-size:18px;max-width:700px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 20px;border-radius:12px;background:#fff;color:#172554;font-weight:800;text-decoration:none;transition:.18s ease}
+    .btn:hover{transform:translateY(-1px);background:#eff6ff}
+    .btn.secondary{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35)}
+    .btn.secondary:hover{background:rgba(255,255,255,.08)}
+    .hero-shot{position:relative}.hero-shot img{border-radius:14px;border:1px solid rgba(255,255,255,.15);box-shadow:0 18px 50px rgba(0,0,0,.22)}
+    .hero-note{margin-top:10px;color:#bfdbfe;font-size:12px;text-align:right}
+    section.block{margin-top:22px;padding:32px;border:1px solid var(--border);border-radius:18px;background:var(--card);box-shadow:var(--shadow)}
+    h2{margin:0 0 8px;font-size:clamp(27px,3vw,36px);line-height:1.15}.intro{margin:0 0 24px;color:var(--muted);max-width:800px}
+    .cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+    .card{padding:20px;border:1px solid var(--border);border-radius:14px;background:#fff}.card strong{display:block;margin-bottom:8px;font-size:17px}.card p{margin:0;color:var(--muted);font-size:14px}
+    .tag{display:inline-flex;margin-bottom:12px;padding:5px 9px;border-radius:999px;background:var(--soft);color:var(--primary);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.035em}
+    .feature{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;margin-top:28px}.feature:first-of-type{margin-top:0}.feature.reverse .copy{order:2}.feature.reverse .shot{order:1}
+    .feature h3{margin:0 0 10px;font-size:24px;line-height:1.2}.feature p{margin:0;color:var(--muted)}
+    .feature ul{margin:16px 0 0;padding-left:20px;color:var(--muted)}.feature li{margin:7px 0}
+    .shot{padding:8px;border:1px solid var(--border);border-radius:15px;background:#f8fafc}.shot img{border-radius:10px;width:100%;height:auto}
+    .flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.step{padding:18px;border-radius:14px;background:#f8fafc;border:1px solid var(--border)}.num{display:grid;place-items:center;width:30px;height:30px;margin-bottom:12px;border-radius:50%;background:var(--primary);color:#fff;font-weight:800;font-size:13px}.step strong{display:block;margin-bottom:6px}.step p{margin:0;color:var(--muted);font-size:14px}
+    .cta{margin:22px 0 30px;padding:34px;display:flex;align-items:center;justify-content:space-between;gap:24px;border-radius:18px;background:linear-gradient(135deg,#eaf0ff,#fff);border:1px solid #c7d2fe}.cta h2{font-size:28px}.cta p{margin:6px 0 0;color:var(--muted)}.cta .btn{background:var(--cta);color:#fff}.cta .btn:hover{background:var(--cta-dark)}
+    footer{padding:28px 18px;text-align:center;color:var(--muted);background:#f1f3f5;border-top:1px solid var(--border);font-size:14px}
+    @media(max-width:900px){.nav{padding:14px 0;align-items:flex-start}.brand img{height:44px}.hero-grid,.feature{grid-template-columns:1fr}.cards,.flow{grid-template-columns:repeat(2,minmax(0,1fr))}.feature.reverse .copy,.feature.reverse .shot{order:initial}.hero-shot{max-width:760px}.cta{align-items:flex-start;flex-direction:column}}
+    @media(max-width:620px){.container{width:min(100% - 24px,1120px)}.nav{min-height:auto;display:block}.brand{display:flex;justify-content:center}.brand img{height:42px}nav{margin-top:12px;justify-content:center;gap:8px 14px}nav a{font-size:13px}.hero{margin-top:14px;border-radius:15px}.hero-grid{padding:30px 20px;gap:26px}.hero p{font-size:16px}.actions{display:grid;grid-template-columns:1fr}.btn{width:100%}section.block{padding:24px 20px;border-radius:15px}.cards,.flow{grid-template-columns:1fr}.feature{gap:18px}.cta{padding:24px 20px;border-radius:15px}.hero-note{text-align:left}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="brand" href="index.html" aria-label="Skynet Soluciones - Inicio"><img src="img/logo33-1.png" alt="Skynet Soluciones"></a>
+    <nav aria-label="Navegación principal">
+      <a href="index.html">Inicio</a>
+      <a href="#capacidades">Capacidades</a>
+      <a href="#plataforma">Plataforma</a>
+      <a href="#como-funciona">Cómo funciona</a>
+      <a href="index.html#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+<main class="container">
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">SEC1 · Skynet Soluciones</span>
+        <h1>La red genera señales. SEC1 las organiza.</h1>
+        <p>Observabilidad y análisis de seguridad para ISP's y empresas. SEC1 reúne telemetría, comportamiento e indicadores para ayudar a encontrar clientes afectados y priorizar investigación.</p>
+        <div class="actions">
+          <a class="btn" href="#plataforma">Ver la plataforma</a>
+          <a class="btn secondary" href="index.html#contacto">Solicitar información</a>
+        </div>
+      </div>
+      <div class="hero-shot">
+        <img src="img/sec1/dashboard.png" alt="Dashboard de SEC1" loading="eager">
+        <div class="hero-note">Interfaz real de SEC1</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="capacidades" class="block">
+    <h2>De telemetría a evidencia útil</h2>
+    <p class="intro">SEC1 está pensado para investigar redes reales sin reducir todo a una alerta aislada. Permite observar, correlacionar y enfocar la atención donde aparecen señales relevantes.</p>
+    <div class="cards">
+      <div class="card"><span class="tag">01</span><strong>Comportamiento DNS</strong><p>Volumen, picos, repetición y anomalías estructurales por cliente y ventana de tiempo.</p></div>
+      <div class="card"><span class="tag">02</span><strong>Correlación IOC</strong><p>Relaciona observaciones con indicadores conocidos para aportar contexto a la investigación.</p></div>
+      <div class="card"><span class="tag">03</span><strong>Campañas dirigidas</strong><p>Permite enfocar el análisis sobre redes y sensores seleccionados durante una investigación.</p></div>
+      <div class="card"><span class="tag">04</span><strong>Reportes técnicos</strong><p>Consolida resultados para seguimiento, análisis y comunicación con equipos técnicos.</p></div>
+    </div>
+  </section>
+
+  <section id="plataforma" class="block">
+    <h2>Una vista técnica, sin perder contexto</h2>
+    <p class="intro">Las pantallas de SEC1 separan comportamiento, evidencia y correlación para que una anomalía estadística no sea confundida automáticamente con una amenaza confirmada.</p>
+
+    <div class="feature">
+      <div class="copy">
+        <span class="tag">Comportamiento</span>
+        <h3>Identificar clientes que se salen de la línea normal</h3>
+        <p>SEC1 consolida ventanas de comportamiento y permite distinguir actividad normal, alto volumen y patrones anómalos para priorizar clientes concretos.</p>
+        <ul><li>Promedio y picos de consultas.</li><li>QNAME únicos y repetición.</li><li>Razones de clasificación visibles.</li></ul>
+      </div>
+      <div class="shot"><img src="img/sec1/behavior.png" alt="Panel de comportamiento DNS de SEC1" loading="lazy"></div>
+    </div>
+
+    <div class="feature reverse">
+      <div class="copy">
+        <span class="tag">Evidencia IOC</span>
+        <h3>Separar señal, evidencia e indicador</h3>
+        <p>La plataforma muestra observaciones de seguridad, clientes afectados e indicadores detectados dentro del alcance seleccionado.</p>
+        <ul><li>Clientes afectados.</li><li>Indicadores observados.</li><li>Detectores y nivel de correlación.</li></ul>
+      </div>
+      <div class="shot"><img src="img/sec1/evidence-ioc.png" alt="Panel Evidencia IOC de SEC1" loading="lazy"></div>
+    </div>
+
+    <div class="feature">
+      <div class="copy">
+        <span class="tag">Correlación</span>
+        <h3>Priorizar lo que merece investigación</h3>
+        <p>La correlación ayuda a reunir señales dispersas y permite revisar el contexto técnico de un cliente sin convertir una observación aislada en una conclusión automática.</p>
+      </div>
+      <div class="shot"><img src="img/sec1/correlation.png" alt="Correlación de señales en SEC1" loading="lazy"></div>
+    </div>
+
+    <div class="feature reverse">
+      <div class="copy">
+        <span class="tag">Sensores</span>
+        <h3>Telemetría distribuida y alcance controlado</h3>
+        <p>SEC1 puede trabajar con diferentes fuentes de telemetría y redes observables, permitiendo seleccionar el alcance adecuado para cada campaña.</p>
+      </div>
+      <div class="shot"><img src="img/sec1/sensors.png" alt="Panel de sensores de SEC1" loading="lazy"></div>
+    </div>
+  </section>
+
+  <section id="como-funciona" class="block">
+    <h2>Cómo trabaja SEC1</h2>
+    <p class="intro">El objetivo no es reemplazar el criterio técnico, sino reducir el tiempo necesario para encontrar dónde mirar.</p>
+    <div class="flow">
+      <div class="step"><span class="num">1</span><strong>Observa</strong><p>Recibe telemetría de los sensores habilitados.</p></div>
+      <div class="step"><span class="num">2</span><strong>Analiza</strong><p>Construye comportamiento por cliente y ventana.</p></div>
+      <div class="step"><span class="num">3</span><strong>Correlaciona</strong><p>Relaciona señales con evidencia e indicadores disponibles.</p></div>
+      <div class="step"><span class="num">4</span><strong>Prioriza</strong><p>Presenta clientes y eventos que requieren revisión técnica.</p></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div><h2>SEC1 para su red</h2><p>Conversemos sobre el alcance, sensores disponibles y el tipo de análisis que necesita su operación.</p></div>
+    <a class="btn" href="index.html#contacto">Solicitar información</a>
+  </section>
+</main>
+<footer>© <span id="y"></span> Skynet Soluciones. Todos los derechos reservados.</footer>
+<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+</body>
+</html>

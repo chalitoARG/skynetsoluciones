@@ -1,208 +1,433 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Skynet Soluciones</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&amp;display=swap"
-      rel="stylesheet">
-    <style>
-:root{
-  --bg:#f7f9fb; --card:#ffffff; --ink:#0f172a; --muted:#475569;
-  --primary:#1e3a8a; --cta:#204fbf; --border:#e5e7eb;
-}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;}
-.container{max-width:1100px;margin:0 auto;padding:28px}
-header{position:sticky;top:0;backdrop-filter:saturate(1.2) blur(6px);background:rgba(247,249,251,.95);border-bottom:1px solid var(--border);z-index:999;}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:24px}
-.nav img{height:50px}
-.nav a{color:var(--ink);text-decoration:none;font-weight:600;margin-left:20px}
-.nav a:hover{opacity:.8}
-.hero{background:var(--card);border:1px solid var(--border);margin-top:24px;border-radius:18px;padding:40px 28px;display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center;box-shadow:0 10px 30px rgba(2,6,23,.06)}
-.hero h1{font-size:36px;line-height:1.2;margin:0 0 14px;font-weight:800;letter-spacing:-.02em}
-.hero p{margin:0 0 22px;color:var(--muted);font-size:18px}
-.btn{display:inline-block;background:var(--cta);color:#fff;padding:14px 24px;border-radius:12px;font-weight:700;text-decoration:none;transition:all .3s;}
-.btn:hover{filter:brightness(.95)}
-.pill-strip{display:flex;flex-wrap:wrap;gap:12px;margin-top:14px}
-.pill{background:#eef2ff;border:1px solid #e0e7ff;color:#1e3a8a;padding:6px 12px;border-radius:999px;font-size:13px;font-weight:600}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Skynet Soluciones: networking, infraestructura, seguridad y soporte para ISP's y empresas de Argentina y Latinoamérica.">
+  <title>Skynet Soluciones | Networking, Seguridad y Soporte</title>
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="apple-touch-icon" href="img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f7f9fb;
+      --card:#ffffff;
+      --ink:#0f172a;
+      --muted:#475569;
+      --primary:#1e3a8a;
+      --cta:#204fbf;
+      --cta-dark:#173e9d;
+      --soft:#eef2ff;
+      --border:#e5e7eb;
+      --shadow:0 10px 30px rgba(2,6,23,.06);
+    }
 
-.services,.about,.contact{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:28px;margin-top:22px;box-shadow:0 8px 24px rgba(2,6,23,.05)}
-h2{margin:0 0 16px;font-size:28px;font-weight:700}
-.grid{display:grid;gap:18px}
-.grid.cols-4{grid-template-columns:repeat(4,1fr)}
-@media (max-width:900px){.hero{grid-template-columns:1fr;text-align:center}.grid.cols-4{grid-template-columns:1fr 1fr}}
-@media (max-width:520px){.grid.cols-4{grid-template-columns:1fr}}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--ink);
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;
+      line-height:1.55;
+    }
+    img{max-width:100%;display:block}
+    a{color:inherit}
+    .container{width:min(1100px,calc(100% - 36px));margin:0 auto}
 
-.service{border:1px solid var(--border);border-radius:14px;padding:18px;transition:transform .3s;cursor:pointer}
-.service:hover{transform:translateY(-5px);box-shadow:0 8px 20px rgba(0,0,0,.08);}
-.service h3{margin:12px 0 6px;font-size:18px}
-.service p{margin:0;color:var(--muted);font-size:14px}
-.icon{width:32px;height:32px;stroke:var(--cta)}
+    header{
+      position:sticky;
+      top:0;
+      z-index:999;
+      border-bottom:1px solid var(--border);
+      background:rgba(247,249,251,.96);
+      backdrop-filter:saturate(1.15) blur(8px);
+    }
+    .nav{
+      min-height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+    .brand img{height:50px;width:auto}
+    nav{display:flex;align-items:center;gap:22px;flex-wrap:wrap;justify-content:flex-end}
+    nav a{font-size:14px;font-weight:700;text-decoration:none}
+    nav a:hover{color:var(--cta)}
 
-.about p{color:var(--muted);font-size:16px;margin:0}
-.clients{display:flex;gap:28px;align-items:center;flex-wrap:wrap;margin-top:18px}
-.clients img{height:28px;filter:grayscale(1);opacity:.9;transition:opacity .3s}
-.clients img:hover{opacity:1}
+    main{padding:24px 0 0}
+    .hero,
+    .services,
+    .sec1,
+    .about,
+    .contact{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:18px;
+      box-shadow:var(--shadow);
+    }
 
-footer{color:var(--muted);text-align:center;padding:28px;background:#f1f3f5}
+    .hero{
+      padding:44px 34px;
+      display:grid;
+      grid-template-columns:1.08fr .92fr;
+      gap:34px;
+      align-items:center;
+    }
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      margin-bottom:12px;
+      color:var(--primary);
+      font-size:13px;
+      font-weight:800;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+    }
+    .hero h1{
+      margin:0 0 16px;
+      max-width:690px;
+      font-size:clamp(34px,4.2vw,50px);
+      line-height:1.08;
+      letter-spacing:-.035em;
+      font-weight:800;
+    }
+    .hero p{
+      margin:0 0 24px;
+      max-width:680px;
+      color:var(--muted);
+      font-size:18px;
+    }
+    .hero-visual img{
+      width:100%;
+      aspect-ratio:4/3;
+      object-fit:cover;
+      border-radius:16px;
+    }
 
-.wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:start;margin-top:20px}
-@media (max-width:900px){.wrap{grid-template-columns:1fr;gap:24px;text-align:center}}
-form{background:#f9fafb;padding:32px;border-radius:16px;box-shadow:0 8px 24px rgba(0,0,0,.05);display:grid;gap:20px}
-.form-group{position:relative}
-.form-group input,
-.form-group textarea{width:100%;padding:16px 14px;font:inherit;border:1px solid #e5e7eb;border-radius:12px;background:#fff;transition:all .3s}
-.form-group input:focus,
-.form-group textarea:focus{border-color:#204fbf;outline:none;box-shadow:0 4px 12px rgba(32,79,191,.15)}
-.form-group label{position:absolute;top:50%;left:16px;transform:translateY(-50%);color:#475569;font-size:16px;pointer-events:none;transition:all .2s}
-.form-group input:focus + label,
-.form-group input:not(:placeholder-shown) + label,
-.form-group textarea:focus + label,
-.form-group textarea:not(:placeholder-shown) + label{top:-10px;left:12px;font-size:12px;color:#204fbf;background:#f9fafb;padding:0 4px}
-textarea{min-height:140px;resize:vertical}
-button[type="submit"]{background:#204fbf;color:#fff;padding:14px 24px;font-weight:700;border:none;border-radius:14px;cursor:pointer;transition:all .3s;box-shadow:0 4px 12px rgba(32,79,191,.3)}
-button[type="submit"]:hover{transform:translateY(-2px);filter:brightness(.95)}
-.success-message{color:green;font-weight:600;display:none;margin-top:12px;text-align:center}
-.contact-info p{margin-bottom:12px;color:#475569}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:48px;
+      padding:12px 20px;
+      border-radius:12px;
+      background:var(--cta);
+      color:#fff;
+      font-weight:800;
+      text-decoration:none;
+      transition:transform .18s ease,background .18s ease;
+    }
+    .btn:hover{background:var(--cta-dark);transform:translateY(-1px)}
+    .btn.secondary{background:#fff;color:var(--primary);border:1px solid #c7d2fe}
+    .btn.secondary:hover{background:var(--soft)}
 
-</style>
-  </head>
-  <body>
-    <header>
-      <div class="container nav">
+    .pill-strip{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+    .pill{
+      padding:6px 11px;
+      border:1px solid #e0e7ff;
+      border-radius:999px;
+      background:var(--soft);
+      color:var(--primary);
+      font-size:12px;
+      font-weight:700;
+    }
+
+    .services,.about,.contact{padding:30px;margin-top:22px}
+    h2{margin:0 0 8px;font-size:clamp(26px,3vw,32px);line-height:1.2}
+    .section-intro{margin:0 0 22px;color:var(--muted)}
+    .grid{display:grid;gap:18px}
+    .grid.cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+
+    .service{
+      display:flex;
+      flex-direction:column;
+      min-height:218px;
+      padding:20px;
+      border:1px solid var(--border);
+      border-radius:14px;
+      background:#fff;
+      text-decoration:none;
+      transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+    }
+    .service:hover{transform:translateY(-3px);border-color:#cbd5e1;box-shadow:0 9px 22px rgba(15,23,42,.07)}
+    .service h3{margin:14px 0 7px;font-size:18px;line-height:1.3}
+    .service p{margin:0;color:var(--muted);font-size:14px}
+    .service-link{margin-top:auto;padding-top:18px;color:var(--cta);font-size:13px;font-weight:800}
+    .icon{width:34px;height:34px;stroke:var(--cta);stroke-linecap:round;stroke-linejoin:round}
+    .service.sec1-card{border-color:#c7d2fe;background:linear-gradient(180deg,#f8faff 0%,#fff 100%)}
+
+    .sec1{
+      position:relative;
+      overflow:hidden;
+      margin-top:22px;
+      padding:34px;
+      display:grid;
+      grid-template-columns:1.35fr .65fr;
+      gap:28px;
+      align-items:center;
+      background:linear-gradient(135deg,#0f172a 0%,#172554 100%);
+      color:#fff;
+      border-color:#1e3a8a;
+    }
+    .sec1::after{
+      content:"";
+      position:absolute;
+      width:260px;
+      height:260px;
+      right:-80px;
+      top:-100px;
+      border-radius:50%;
+      background:rgba(59,130,246,.12);
+      pointer-events:none;
+    }
+    .sec1 .eyebrow{color:#93c5fd}
+    .sec1 h2{font-size:clamp(28px,4vw,40px);margin-bottom:12px}
+    .sec1 p{margin:0;color:#dbeafe;max-width:760px}
+    .sec1-points{display:grid;gap:9px;margin:22px 0 0;padding:0;list-style:none;color:#e2e8f0;font-size:14px}
+    .sec1-points li::before{content:"✓";margin-right:8px;color:#93c5fd;font-weight:800}
+    .sec1-action{display:flex;justify-content:flex-end;position:relative;z-index:1}
+    .sec1 .btn{background:#fff;color:#172554;min-width:170px}
+    .sec1 .btn:hover{background:#eff6ff}
+
+    .about p{margin:0;color:var(--muted);font-size:16px}
+    .clients{display:flex;gap:28px;align-items:center;flex-wrap:wrap;margin-top:18px}
+    .clients img{height:28px;width:auto;filter:grayscale(1);opacity:.82;transition:opacity .18s ease}
+    .clients img:hover{opacity:1}
+
+    .wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:32px;align-items:start;margin-top:22px}
+    form{display:grid;gap:18px;padding:28px;border-radius:16px;background:#f9fafb;border:1px solid #eef2f7}
+    .form-group{position:relative}
+    .form-group input,.form-group textarea{
+      width:100%;padding:16px 14px;font:inherit;border:1px solid #dbe1e8;border-radius:12px;background:#fff;transition:border-color .18s ease,box-shadow .18s ease
+    }
+    .form-group input:focus,.form-group textarea:focus{border-color:var(--cta);outline:none;box-shadow:0 0 0 3px rgba(32,79,191,.10)}
+    .form-group label{position:absolute;top:50%;left:16px;transform:translateY(-50%);color:var(--muted);font-size:15px;pointer-events:none;transition:all .18s ease}
+    .form-group textarea + label{top:24px}
+    .form-group input:focus + label,.form-group input:not(:placeholder-shown) + label,.form-group textarea:focus + label,.form-group textarea:not(:placeholder-shown) + label{
+      top:-9px;left:12px;transform:none;padding:0 4px;background:#f9fafb;color:var(--cta);font-size:11px
+    }
+    textarea{min-height:140px;resize:vertical}
+    button[type="submit"]{
+      min-height:48px;padding:12px 20px;border:0;border-radius:12px;background:var(--cta);color:#fff;font:inherit;font-weight:800;cursor:pointer
+    }
+    button[type="submit"]:hover{background:var(--cta-dark)}
+    .success-message{display:none;margin-top:4px;color:#166534;font-weight:700;text-align:center}
+    .contact-info{padding:6px 0}
+    .contact-info p{margin:0 0 12px;color:var(--muted)}
+
+    footer{margin-top:30px;padding:28px 18px;text-align:center;color:var(--muted);background:#f1f3f5;border-top:1px solid var(--border);font-size:14px}
+
+    @media (max-width:900px){
+      .nav{padding:14px 0;align-items:flex-start}
+      .brand img{height:44px}
+      nav{gap:10px 16px}
+      .hero{grid-template-columns:1fr;padding:34px 26px}
+      .hero-visual{max-width:620px;margin:0 auto;width:100%}
+      .grid.cols-4{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .sec1{grid-template-columns:1fr}
+      .sec1-action{justify-content:flex-start}
+      .wrap{grid-template-columns:1fr}
+    }
+
+    @media (max-width:620px){
+      .container{width:min(100% - 24px,1100px)}
+      .nav{min-height:auto;display:block}
+      .brand{display:flex;justify-content:center}
+      .brand img{height:42px}
+      nav{margin-top:12px;justify-content:center;gap:8px 14px}
+      nav a{font-size:13px}
+      main{padding-top:14px}
+      .hero,.services,.sec1,.about,.contact{border-radius:15px}
+      .hero{padding:28px 20px;gap:24px}
+      .hero p{font-size:16px}
+      .actions{display:grid;grid-template-columns:1fr}
+      .btn{width:100%}
+      .grid.cols-4{grid-template-columns:1fr}
+      .service{min-height:0}
+      .services,.about,.contact,.sec1{padding:24px 20px}
+      .sec1-action .btn{width:100%}
+      .clients{justify-content:center;gap:22px}
+      form{padding:20px}
+    }
+
+    @media (prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{transition:none!important}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#inicio" aria-label="Skynet Soluciones - Inicio">
         <img src="img/logo33-1.png" alt="Skynet Soluciones">
-        <nav>
-          <a href="#inicio">Inicio</a>
-          <a href="#servicios">Servicios</a>
-          <a href="#quienes">Quienes Somos</a>
-          <a href="#contacto">Contacto</a>
-        </nav>
-      </div>
-    </header>
-    <main class="container">
-      <section id="inicio" class="hero">
-        <div>
-          <h1>Soluciones Empresariales en Seguridad, Redes y Soporte TI</h1>
-          <p>15 años de experiencia en infraestructura, videovigilancia y
-            conectividad.</p>
+      </a>
+      <nav aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="sec1.html">SEC1</a>
+        <a href="#quienes">Quiénes Somos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="inicio" class="hero">
+      <div>
+        <span class="eyebrow">Networking · ISP's · Empresas</span>
+        <h1>Diseño, administración y evolución de redes para ISP's y empresas.</h1>
+        <p>Consultoría, infraestructura, seguridad, monitoreo y soporte especializado para redes que necesitan crecer con control y disponibilidad.</p>
+        <div class="actions">
           <a class="btn" href="#contacto">Solicitar Consultoría</a>
-          <div class="pill-strip" aria-hidden="true">
-            <span class="pill">CCTV &amp; Monitoreo</span>
-            <span class="pill">Infraestructura TI</span>
-            <span class="pill">Networking &amp; Conectividad</span>
-            <span class="pill">Soporte Técnico</span>
+          <a class="btn secondary" href="sec1.html">Conocer SEC1</a>
+        </div>
+        <div class="pill-strip" aria-label="Áreas de especialidad">
+          <span class="pill">MikroTik</span>
+          <span class="pill">Routing &amp; Switching</span>
+          <span class="pill">Infraestructura TI</span>
+          <span class="pill">Seguridad &amp; Observabilidad</span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="img/soluciones-ti.jpg" alt="Infraestructura y soluciones de networking" width="800" height="600">
+      </div>
+    </section>
+
+    <section id="servicios" class="services">
+      <h2>Servicios</h2>
+      <p class="section-intro">Soporte de networking, ISP's y empresas con foco en operación, evolución, seguridad y continuidad.</p>
+
+      <div class="grid cols-4">
+        <a href="#contacto" class="service">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke-width="1.8" aria-hidden="true"><circle cx="6" cy="12" r="2"></circle><circle cx="18" cy="6" r="2"></circle><circle cx="18" cy="18" r="2"></circle><path d="M8 12h8M18 8v8"></path></svg>
+          <h3>Networking &amp; Conectividad</h3>
+          <p>Routing, switching, BGP, OSPF, PPPoE, QoS y diseño de redes para ISP's y empresas.</p>
+          <span class="service-link">Consultar →</span>
+        </a>
+
+        <a href="#contacto" class="service">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="6" rx="2"></rect><rect x="3" y="10" width="18" height="6" rx="2"></rect><rect x="3" y="17" width="18" height="4" rx="2"></rect></svg>
+          <h3>Infraestructura TI</h3>
+          <p>Servidores, datacenters, conectividad, integración multi-marca y continuidad operativa.</p>
+          <span class="service-link">Consultar →</span>
+        </a>
+
+        <a href="sec1.html" class="service sec1-card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke-width="1.8" aria-hidden="true"><path d="M12 2l7 4v6c0 5-3.5 9-7 10-3.5-1-7-5-7-10V6l7-4z"></path><path d="M8.5 12h2l1.2-2.5 1.8 5 1.2-2.5H17"></path></svg>
+          <h3>SEC1 · Seguridad &amp; Monitoreo</h3>
+          <p>Observabilidad de red, comportamiento DNS, correlación de indicadores y análisis de clientes afectados.</p>
+          <span class="service-link">Conocer SEC1 →</span>
+        </a>
+
+        <a href="https://soporte.skynetsoluciones.com" class="service" target="_blank" rel="noopener noreferrer">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke-width="1.8" aria-hidden="true"><path d="M4 13a8 8 0 0 1 16 0"></path><path d="M4 13v4a2 2 0 0 0 2 2h2v-7H4zM20 13v4a2 2 0 0 1-2 2h-2v-7h4z"></path><path d="M16 19c0 1.1-.9 2-2 2h-2"></path></svg>
+          <h3>Soporte Técnico</h3>
+          <p>Acceso al portal de soporte para asistencia, seguimiento y atención remota.</p>
+          <span class="service-link">Ir a Soporte →</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="sec1" class="sec1">
+      <div>
+        <span class="eyebrow">Tecnología propia · Skynet Soluciones</span>
+        <h2>SEC1 — observabilidad y seguridad de red</h2>
+        <p>Una plataforma orientada a ISP's y redes empresariales para observar comportamiento, correlacionar señales e identificar rápidamente los clientes que requieren atención.</p>
+        <ul class="sec1-points">
+          <li>Análisis de comportamiento y telemetría DNS.</li>
+          <li>Correlación de indicadores y evidencia de seguridad.</li>
+          <li>Campañas dirigidas sobre redes y sensores seleccionados.</li>
+          <li>Reportes técnicos para investigación y seguimiento.</li>
+        </ul>
+      </div>
+      <div class="sec1-action">
+        <a class="btn" href="sec1.html">Conocer SEC1</a>
+      </div>
+    </section>
+
+    <section id="quienes" class="about">
+      <h2>Quiénes Somos</h2>
+      <p>En Skynet Soluciones brindamos consultoría y soporte especializado en networking, infraestructura y seguridad para ISP's, PyMEs y empresas de Argentina y Latinoamérica. Contamos con más de 15 años de experiencia en consultoría IT y trabajo con tecnologías de múltiples fabricantes.</p>
+      <h3 style="margin:22px 0 8px;font-size:18px">Confían en nosotros</h3>
+      <div class="clients">
+        <img src="img/logo7.png" alt="Cliente de Skynet Soluciones" loading="lazy">
+        <img src="img/logo6.png" alt="Cliente de Skynet Soluciones" loading="lazy">
+        <img src="img/logo4.png" alt="Cliente de Skynet Soluciones" loading="lazy">
+        <img src="img/logo3.png" alt="Cliente de Skynet Soluciones" loading="lazy">
+        <img src="img/logo2.png" alt="Cliente de Skynet Soluciones" loading="lazy">
+      </div>
+    </section>
+
+    <section id="contacto" class="contact">
+      <h2>Contáctenos</h2>
+      <p class="section-intro">Cuéntenos qué necesita mejorar, implementar o diagnosticar en su red.</p>
+      <div class="wrap">
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input name="form-name" value="contact" type="hidden">
+          <p style="display:none">
+            <label>No completar: <input name="bot-field"></label>
+          </p>
+          <div class="form-group">
+            <input name="name" placeholder=" " required type="text" autocomplete="name">
+            <label>Nombre</label>
           </div>
-        </div>
-        <div>
-          <img src="img/soluciones-ti.jpg" alt="Soluciones TI" style="border-radius:16px; width:100%; height:auto;">
-        </div>
-      </section>
-      <section id="servicios" class="services">
-        <h2>Servicios</h2>
-        <div class="grid cols-4">
-<a href="https://soporte.skynetsoluciones.com" class="service" target="_blank">
-  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 2l7 4v6c0 5-3.5 9-7 10-3.5-1-7-5-7-10V6l7-4z"></path></svg>
-  <h3>Seguridad &amp; Monitoreo</h3>
-  <p>Sistemas IP/analogicos, control y videovigilancia.</p>
-</a>
-
-<a href="https://soporte.skynetsoluciones.com" class="service" target="_blank">
-  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="6" rx="2"></rect><rect x="3" y="10" width="18" height="6" rx="2"></rect><rect x="3" y="17" width="18" height="4" rx="2"></rect></svg>
-  <h3>Infraestructura TI</h3>
-  <p>Diseño, cableado, datacenters y servidores.</p>
-</a>
-
-<a href="https://soporte.skynetsoluciones.com" class="service" target="_blank">
-  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="6" cy="12" r="2"></circle><circle cx="18" cy="6" r="2"></circle><circle cx="18" cy="18" r="2"></circle><path d="M8 12h8M18 8v8"></path></svg>
-  <h3>Networking &amp; Conectividad</h3>
-  <p>Consultoría, implementación y soporte.</p>
-</a>
-
-<a href="https://soporte.skynetsoluciones.com" class="service" target="_blank">
-  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 2v6M8 4h8M5 10h14l-1 10H6l-1-10z"></path></svg>
-  <h3>Soporte Tecnico</h3>
-  <p>Mantenimiento preventivo y correctivo.</p>
-</a>
-
-      </section>
-      <section id="quienes" class="about">
-        <h2>Quienes Somos</h2>
-        <p>
-          En Skynet Soluciones ofrecemos servicios integrales en seguridad,
-          redes e infraestructura.
-          Contamos con un equipo de ingenieros certificados y mas de 15 años de
-          experiencia brindando soporte tecnológico a empresas de Argentina y
-          Latam.
-        </p>
-        <h3 style="margin:20px 0 8px;font-size:18px">Confian en nosotros</h3>
-        <div class="clients">
-          <img src="img/logo7.png" alt="Cliente 1">
-          <img src="img/logo6.png" alt="Cliente 2">
-          <img src="img/logo4.png" alt="Cliente 3">
-          <img src="img/logo3.png" alt="Cliente 4">
-          <img src="img/logo2.png" alt="Cliente 5">
-        </div>
-      </section>
-      <section id="contacto" class="contact">
-        <h2>Contáctenos</h2>
-        <div class="wrap">
-          <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-            <input name="form-name" value="contact" type="hidden">
-            <p style="display:none">
-              <label>Don’t fill this out: <input name="bot-field"></label>
-            </p>
-            <div class="form-group">
-              <input name="name" placeholder=" " required="" type="text">
-              <label>Nombre</label>
-            </div>
-            <div class="form-group">
-              <input name="email" placeholder=" " required="" type="email">
-              <label>Email</label>
-            </div>
-            <div class="form-group">
-              <input name="asunto" placeholder=" " type="text">
-              <label>Asunto</label>
-            </div>
-            <div class="form-group">
-              <textarea name="message" placeholder=" " required=""></textarea>
-              <label>Mensaje</label>
-            </div>
-            <button type="submit">Enviar</button>
-            <div class="success-message">Gracias por contactarnos! Pronto nos
-              pondremos en contacto.</div>
-          </form>
-          <div class="contact-info">
-            <p><strong>Telefono:</strong> +54 (11) 6113 5246</p>
-            <p><strong>Email:</strong> info@skynetsoluciones.com</p>
-            <p><strong>Ubicacion:</strong> Argentina – Atencion a toda Latam</p>
+          <div class="form-group">
+            <input name="email" placeholder=" " required type="email" autocomplete="email">
+            <label>Email</label>
           </div>
-        </div>
-      </section>
-    </main>
-    <footer>
-      © <span id="y"></span> Skynet Soluciones. Todos los derechos reservados.
-    </footer>
-    <script>
-document.getElementById('y').textContent=new Date().getFullYear();
+          <div class="form-group">
+            <input name="asunto" placeholder=" " type="text">
+            <label>Asunto</label>
+          </div>
+          <div class="form-group">
+            <textarea name="message" placeholder=" " required></textarea>
+            <label>Mensaje</label>
+          </div>
+          <button type="submit">Enviar consulta</button>
+          <div class="success-message" role="status">Gracias por contactarnos. Pronto nos pondremos en contacto.</div>
+        </form>
 
-const form = document.querySelector('form[name="contact"]');
-form.addEventListener('submit', function(e){
-  e.preventDefault();
-  const data = new FormData(form);
-  fetch("/", {
-    method:"POST",
-    headers:{"Content-Type":"application/x-www-form-urlencoded"},
-    body: new URLSearchParams(data).toString()
-  })
-  .then(()=>{
-    form.querySelector('.success-message').style.display = 'block';
-    form.reset();
-  })
-  .catch(err => alert("Error al enviar: " + err));
-});
-</script>
-  </body>
+        <div class="contact-info">
+          <p><strong>Teléfono / WhatsApp:</strong><br>+54 (11) 6113 5246</p>
+          <p><strong>Email:</strong><br>info@skynetsoluciones.com</p>
+          <p><strong>Ubicación:</strong><br>Argentina · Atención a toda Latinoamérica</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="y"></span> Skynet Soluciones. Todos los derechos reservados.
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    const form = document.querySelector('form[name="contact"]');
+    if (form) {
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const data = new FormData(form);
+
+        fetch('/', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+          body: new URLSearchParams(data).toString()
+        })
+        .then(function () {
+          form.querySelector('.success-message').style.display = 'block';
+          form.reset();
+        })
+        .catch(function () {
+          alert('No se pudo enviar el formulario. Intente nuevamente.');
+        });
+      });
+    }
+  </script>
+</body>
 </html>
