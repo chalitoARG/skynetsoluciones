@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Skynet Soluciones – Premium Animado</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f9fb; --card:#ffffff; --ink:#0f172a; --muted:#475569;
+  --primary:#1e3a8a; --cta:#204fbf; --border:#e5e7eb;
+  --gradient-start:#1e3a8a; --gradient-end:#3b82f6;
+}
+*{box-sizing:border-box; scroll-behavior: smooth;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;}
+.container{max-width:1100px;margin:0 auto;padding:28px}
+header{position:sticky;top:0;backdrop-filter:saturate(1.2) blur(8px);background:rgba(247,249,251,.95);border-bottom:1px solid var(--border);z-index:999;transition:all .3s;}
+header:hover{background:rgba(247,249,251,1);}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.nav img{height:50px;transition:transform .3s;}
+.nav img:hover{transform:scale(1.05);}
+.nav a{color:var(--ink);text-decoration:none;font-weight:600;margin-left:20px;transition:color .3s;}
+.nav a:hover{color:var(--gradient-start);}
+.hero{
+  background:linear-gradient(135deg,var(--gradient-start),var(--gradient-end));
+  color:white;
+  border-radius:20px;
+  padding:50px 30px;
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:24px;
+  align-items:center;
+  margin-top:24px;
+  box-shadow:0 12px 36px rgba(0,0,0,.15);
+  opacity:0; transform:translateY(40px); animation:fadeUp 1s forwards;
+}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
+.hero h1{font-size:40px;line-height:1.2;margin:0 0 18px;font-weight:800;letter-spacing:-.02em;transition:all .3s;}
+.hero p{margin:0 0 28px;color:rgba(255,255,255,.9);font-size:18px;transition:all .3s;}
+.btn{display:inline-block;background:#fff;color:var(--gradient-start);padding:16px 28px;border-radius:16px;font-weight:700;text-decoration:none;transition:all .3s;box-shadow:0 6px 20px rgba(0,0,0,.2);}
+.btn:hover{transform:translateY(-2px) scale(1.05);filter:brightness(1.05);}
+.pill-strip{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px;transition:all .3s;}
+.pill{background:rgba(255,255,255,.2);color:#fff;padding:6px 12px;border-radius:999px;font-size:13px;font-weight:600;}
+
+.services,.about,.contact{background:var(--card);border-radius:20px;padding:32px;margin-top:28px;box-shadow:0 12px 30px rgba(0,0,0,.08);opacity:0;transform:translateY(40px); transition:all .8s ease-out;}
+.services.show,.about.show,.contact.show{opacity:1;transform:translateY(0);}
+h2{margin:0 0 20px;font-size:30px;font-weight:700}
+.grid{display:grid;gap:24px}
+.grid.cols-4{grid-template-columns:repeat(4,1fr)}
+@media (max-width:900px){.hero{grid-template-columns:1fr;text-align:center}.grid.cols-4{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.grid.cols-4{grid-template-columns:1fr}}
+
+.service{border-radius:16px;padding:24px;background:#fff;transition:transform .3s,box-shadow .3s,opacity .6s;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,.05);opacity:0;transform:translateY(30px);}
+.service:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 12px 32px rgba(0,0,0,.12);}
+.service.show{opacity:1;transform:translateY(0);}
+.service h3{margin:12px 0 6px;font-size:18px}
+.service p{margin:0;color:var(--muted);font-size:14px}
+.icon{width:36px;height:36px;stroke:var(--gradient-start);transition:all .3s;}
+.icon:hover{stroke:var(--gradient-end);}
+
+.about p{color:var(--muted);font-size:16px;margin:0;transition:all .3s;}
+.clients{display:flex;gap:28px;align-items:center;flex-wrap:wrap;margin-top:20px}
+.clients img{height:30px;filter:grayscale(1);opacity:.9;transition:opacity .3s,transform .3s;}
+.clients img:hover{opacity:1;transform:scale(1.1);}
+
+footer{color:#fff;text-align:center;padding:28px;background:linear-gradient(135deg,var(--gradient-start),var(--gradient-end));border-radius:20px;margin-top:28px;transition:all .3s;}
+footer:hover{filter:brightness(1.05)}
+
+.wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:36px;align-items:start;margin-top:28px}
+@media (max-width:900px){.wrap{grid-template-columns:1fr;gap:24px;text-align:center}}
+form{background:#f9fafb;padding:36px;border-radius:20px;box-shadow:0 12px 32px rgba(0,0,0,.08);display:grid;gap:24px;transition:all .3s}
+.form-group{position:relative}
+.form-group input,
+.form-group textarea{width:100%;padding:16px 18px;font:inherit;border:1px solid #e5e7eb;border-radius:14px;background:#fff;transition:all .3s}
+.form-group input:focus,
+.form-group textarea:focus{border-color:var(--gradient-start);outline:none;box-shadow:0 6px 16px rgba(32,79,191,.25);transform:scale(1.01);}
+.form-group label{position:absolute;top:50%;left:18px;transform:translateY(-50%);color:#475569;font-size:16px;pointer-events:none;transition:all .2s}
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label,
+.form-group textarea:focus + label,
+.form-group textarea:not(:placeholder-shown) + label{top:-12px;left:14px;font-size:12px;color:var(--gradient-start);background:#f9fafb;padding:0 4px}
+textarea{min-height:160px;resize:vertical}
+button[type="submit"]{background:var(--gradient-start);color:#fff;padding:16px 28px;font-weight:700;border:none;border-radius:16px;cursor:pointer;transition:all .3s;box-shadow:0 6px 16px rgba(32,79,191,.3);}
+button[type="submit"]:hover{transform:translateY(-2px) scale(1.02);filter:brightness(1.1);}
+.success-message{color:green;font-weight:600;display:none;margin-top:12px;text-align:center}
+.contact-info p{margin-bottom:12px;color:#475569;}
+
+/* Animación de secciones al scroll */
+</style>
+</head>
+<body>
+
+<header>
+<div class="container nav">
+<img src="img/logo33-1.png" alt="Skynet Soluciones" />
+<nav>
+<a href="#inicio">Inicio</a>
+<a href="#servicios">Servicios</a>
+<a href="#quienes">Quienes Somos</a>
+<a href="#contacto">Contacto</a>
+</nav>
+</div>
+</header>
+
+<main class="container">
+<section id="inicio" class="hero">
+<div>
+<h1>Soluciones Empresariales en Seguridad, Redes y Soporte TI</h1>
+<p>15 años de experiencia en infraestructura, videovigilancia y conectividad.</p>
+<a class="btn" href="#contacto">Solicitar Consultoria</a>
+<div class="pill-strip" aria-hidden="true">
+<span class="pill">CCTV & Monitoreo</span>
+<span class="pill">Infraestructura TI</span>
+<span class="pill">Networking & Conectividad</span>
+<span class="pill">Soporte Tecnico</span>
+</div>
+</div>
+<div>
+<img src="img/soluciones-ti.jpg" alt="Soluciones TI" style="border-radius:20px; width:100%; height:auto;">
+</div>
+</section>
+
+<section id="servicios" class="services">
+<h2>Servicios</h2>
+<div class="grid cols-4">
+<div class="service">
+<svg class="icon" viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 2l7 4v6c0 5-3.5 9-7 10-3.5-1-7-5-7-10V6l7-4z"/></svg>
+<h3>Seguridad & Monitoreo</h3>
+<p>Sistemas IP/analogicos, control y videovigilancia.</p>
+</div>
+<div class="service">
+<svg class="icon" viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="6" rx="2"/><rect x="3" y="10" width="18" height="6" rx="2"/><rect x="3" y="17" width="18" height="4" rx="2"/></svg>
+<h3>Infraestructura TI</h3>
+<p>Diseno, cableado, datacenters y servidores.</p>
+</div>
+<div class="service">
+<svg class="icon" viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="6" cy="12" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="18" cy="18" r="2"/><path d="M8 12h8M18 8v8"/></svg>
+<h3>Networking & Conectividad</h3>
+<p>Consultoria, implementacion y soporte.</p>
+</div>
+<div class="service">
+<svg class="icon" viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 2v6M8 4h8M5 10h14l-1 10H6l-1-10z"/></svg>
+<h3>Soporte Tecnico</h3>
+<p>Mantenimiento preventivo y correctivo.</p>
+</div>
+</div>
+</section>
+
